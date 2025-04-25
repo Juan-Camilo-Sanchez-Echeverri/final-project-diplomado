@@ -1,0 +1,110 @@
+nav {
+  width: auto;
+  height: 100px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+input {
+  border: medium none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.searchItems {
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.login {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/** MOBILE **/
+
+@media screen and (max-width: 320px) {
+
+nav {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search {
+  display: none;
+}
+
+.logo {
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+}
+
+/** TABLET **/
+@media screen and (max-width: 768px) {
+nav{
+  font-size: 15px;
+  justify-content: space-around;
+}
+.login{
+  width: auto;
+  text-align: center;
+  padding: 0;
+  gap:10px
+}
+}
+
+@media screen and (max-width: 1024px) {
+nav{
+  font-size: 15px;
+  justify-content: space-around;
+}
+.login{
+  width: auto;
+  text-align: center;
+  padding: 0;
+  gap:10px
+}
+}
+

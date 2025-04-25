@@ -1,0 +1,30 @@
+<app-announcement></app-announcement>
+<nav>
+  <section class="search">
+    <span>ES</span>
+    <div class="searchItems">
+      <input type="text" placeholder="Buscar" />
+      <fa-icon [icon]="faSearch"></fa-icon>
+    </div>
+  </section>
+  <section class="logo">
+    <a routerLink="/" style="text-decoration: none; color: black;">
+      <h1>TOYS</h1>
+    </a>
+  </section>
+  <section class="login">
+    <ng-container *ngIf="hasUserSession(); else notLoggedIn">
+      <button (click)="handleLogout()" class="logoutButton">
+        <span>Salir</span>
+      </button>
+    </ng-container>
+    <ng-template #notLoggedIn>
+      <a routerLink="/login" style="text-decoration: none; color: black;">
+        <span>Iniciar sesión</span>
+      </a>
+      <a routerLink="/register" style="text-decoration: none; color: black;">
+        <span>Registrarse</span>
+      </a>
+    </ng-template>
+  </section>
+</nav>

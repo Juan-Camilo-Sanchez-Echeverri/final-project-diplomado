@@ -1,0 +1,17 @@
+.container{
+  height: 30px;
+  background-color: teal;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 480px) {
+  .container{
+  text-align: center;
+    padding: 40px;
+  }
+}
