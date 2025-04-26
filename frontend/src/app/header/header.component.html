@@ -1,6 +1,6 @@
 <app-announcement></app-announcement>
 <nav>
-  <section class="search">
+  <section class="search" *ngIf="!isAdmin()">
     <span>ES</span>
     <div class="searchItems">
       <input type="text" placeholder="Buscar" />
@@ -12,11 +12,14 @@
       <h1>TOYS</h1>
     </a>
   </section>
+  <section class="admin-link" *ngIf="isAdmin()">
+    <a routerLink="/create-toy" style="text-decoration: none; color: black;">
+      <span>Crear Juguete</span>
+    </a>
+  </section>
   <section class="login">
     <ng-container *ngIf="hasUserSession(); else notLoggedIn">
-      <button (click)="handleLogout()" class="logoutButton">
-        <span>Salir</span>
-      </button>
+      <button (click)="handleLogout()">Salir</button>
     </ng-container>
     <ng-template #notLoggedIn>
       <a routerLink="/login" style="text-decoration: none; color: black;">

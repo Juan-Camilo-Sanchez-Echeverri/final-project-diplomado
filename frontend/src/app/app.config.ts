@@ -5,6 +5,8 @@ import { importProvidersFrom } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,7 +15,14 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       FontAwesomeModule,
       ReactiveFormsModule,
-      HttpClientModule
+      HttpClientModule,
+      BrowserAnimationsModule, // Requerido por ngx-toastr
+      ToastrModule.forRoot({
+        positionClass: 'toast-top-right', // Posición de las notificaciones
+        timeOut: 3000, // Duración de las notificaciones
+        closeButton: true, // Mostrar botón de cierre
+        progressBar: true, // Mostrar barra de progreso
+      })
     ),
   ],
 };

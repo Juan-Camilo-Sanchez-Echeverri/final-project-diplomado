@@ -51,6 +51,7 @@ export class RegisterComponent {
         this.isLoading = false;
         this.errorMessage =
           error.error.message || 'Error al registrar el usuario';
+        alert(this.errorMessage);
       },
     });
   }

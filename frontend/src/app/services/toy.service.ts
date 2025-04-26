@@ -1,23 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-interface Image {
-  url: string;
-  _id: string;
-}
-
-export interface Toy {
-  _id: string;
-  title: string;
-  category: string;
-  description: string;
-  tags: string[];
-  createdBy: string;
-  images: Image[];
-  createdAt: string;
-  updatedAt: string;
-}
+import { Toy } from '../interfaces/toy.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -28,8 +12,29 @@ export class ToyService {
 
   constructor(private http: HttpClient) {}
 
+  private getHeaders(): HttpHeaders {
+    return new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+  }
+
   getToys(): Observable<Toy[]> {
     return this.http.get<Toy[]>(this.apiUrl);
+  }
+
+  createToy(toy: Toy): Observable<Toy> {
+    return this.http.post<Toy>(this.apiUrl, toy, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  uploadCover(toyId: string, cover: File) {
+    const formData = new FormData();
+    formData.append('cover', cover);
+
+    return this.http.put(`${this.apiUrl}/${toyId}/cover`, formData, {
+      headers: this.getHeaders(),
+    });
   }
 
   getFullImageUrl(imageUrl: string): string {

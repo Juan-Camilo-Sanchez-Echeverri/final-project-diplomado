@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="wrapper">
+    <h1 class="title">CREAR JUGUETE</h1>
+    <form [formGroup]="toyForm" (ngSubmit)="handleSubmit()" class="form">
+      <div class="form-row">
+        <input
+          type="text"
+          placeholder="Título"
+          formControlName="title"
+          class="input"
+        />
+        <select formControlName="category" class="input">
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <textarea
+          placeholder="Descripción"
+          formControlName="description"
+          class="input"
+        ></textarea>
+        <input
+          type="text"
+          placeholder="Tags (separados por comas)"
+          formControlName="tags"
+          class="input"
+        />
+      </div>
+      <div class="form-row">
+        <input
+          type="file"
+          (change)="handleFileInput($event)"
+          class="input"
+        />
+      </div>
+      <button type="submit" class="button" [disabled]="isLoading">Crear Juguete</button>
+    </form>
+    <div *ngIf="isLoading" class="loading">Cargando...</div>
+  </div>
+</div>

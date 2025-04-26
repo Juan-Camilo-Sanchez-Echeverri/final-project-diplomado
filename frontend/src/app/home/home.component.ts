@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ToyService, Toy } from '../services/toy.service';
+import { ToyService } from '../services/toy.service';
 import { CommonModule } from '@angular/common';
+import { Toy } from '../interfaces/toy.interfaces';
 
 @Component({
   selector: 'app-home',

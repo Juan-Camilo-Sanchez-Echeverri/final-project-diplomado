@@ -36,4 +36,8 @@ export class HeaderComponent {
   hasUserSession(): boolean {
     return this.authService.hasUserSession();
   }
+
+  isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
 }
