@@ -60,7 +60,7 @@ toySchema.virtual('comments', {
   options: {
     populate: {
       path: 'user',
-      select: 'name -_id',
+      select: 'name _id',
     },
   },
 });
