@@ -44,7 +44,7 @@ export class LoginComponent {
           return;
         }
 
-        this.router.navigate(['/user']);
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         this.isLoading = false;
