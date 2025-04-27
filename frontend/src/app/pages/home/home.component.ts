@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ToyService } from '../../services/toy.service';
 import { CommonModule } from '@angular/common';
 import { Toy } from '../../interfaces/toy.interfaces';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

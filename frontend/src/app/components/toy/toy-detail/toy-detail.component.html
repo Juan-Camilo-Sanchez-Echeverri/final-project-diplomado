@@ -1,0 +1,34 @@
+<div class="container" *ngIf="toy">
+  <h1 class="title">{{ toy.title }}</h1>
+  <img [src]="toyService.getFullImageUrl(toy.cover)" alt="{{ toy.title }}" class="cover-img">
+  <p class="category">{{ toy.category }}</p>
+  <p class="description">{{ toy.description }}</p>
+  <div class="tags">
+    <span *ngFor="let tag of toy?.tags" class="tag">{{ tag }}</span>
+  </div>
+  <div class="comments">
+    <h2>Comentarios</h2>
+    <div *ngFor="let comment of toy?.comments" class="comment">
+      <p>{{ comment.content }}</p>
+      <p class="comment-user">{{ comment.user.name }}</p>
+      <p class="comment-date">{{ comment.createdAt | date:'short' }}</p>
+      <button *ngIf="canEditOrDelete(comment)" (click)="editComment(comment)" class="button edit-button">Editar</button>
+      <button *ngIf="canEditOrDelete(comment)" (click)="deleteComment(comment._id)" class="button delete-button">Eliminar</button>
+    </div>
+    <div class="add-comment" *ngIf="!editingCommentId">
+      <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+        <textarea formControlName="content" placeholder="Agregar un comentario..." class="input" required></textarea>
+        <button type="submit" class="button add-button">Agregar Comentario</button>
+      </form>
+    </div>
+    <div class="edit-comment" *ngIf="editingCommentId">
+      <form [formGroup]="editCommentForm" (ngSubmit)="updateComment()">
+        <textarea formControlName="content" placeholder="Editar comentario..." class="input" required></textarea>
+        <button type="submit" class="button update-button">Actualizar Comentario</button>
+        <button type="button" (click)="cancelEdit()" class="button cancel-button">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  <button (click)="goBack()" class="button back-button">Volver a la lista</button>
+</div>
+<div *ngIf="isLoading" class="loading">Cargando...</div>

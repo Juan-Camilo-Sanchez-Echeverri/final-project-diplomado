@@ -1,3 +1,5 @@
+import { Comment } from './comment.interfaces';
+
 interface Image {
   url: string;
   _id: string;
@@ -12,6 +14,7 @@ export interface Toy {
   createdBy: string;
   cover: string;
   images: Image[];
+  comments: Comment[];
   createdAt: string;
   updatedAt: string;
 }

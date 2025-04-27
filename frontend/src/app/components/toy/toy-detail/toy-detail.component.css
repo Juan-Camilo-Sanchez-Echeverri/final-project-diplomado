@@ -1,0 +1,129 @@
+.container {
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cover-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.category, .description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.tags {
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.comment {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment-user, .comment-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.add-comment, .edit-comment {
+  margin-top: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #45a049;
+}
+
+.update-button {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-button {
+  background-color: #f44336; 
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+.edit-button {
+  background-color: #FFC107; 
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #FFB300;
+}
+
+.delete-button {
+  background-color: #f44336; 
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.back-button {
+  background-color: #2196F3;
+  color: white;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #1976D2;
+}
+
+.loading {
+  text-align: center;
+  color: teal;
+  font-size: 16px;
+  margin-top: 20px;
+}

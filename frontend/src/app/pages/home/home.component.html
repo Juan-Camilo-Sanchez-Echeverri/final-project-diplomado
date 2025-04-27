@@ -2,13 +2,14 @@
   <h1 class="title">Juguetes</h1>
   <div class="cards">
     <div *ngFor="let toy of toys" class="card">
-      <!-- <img [src]="getFullImageUrl(toy.cover)" alt="{{ toy.title }}" class="card-img"> -->
-       <img *ngIf="toy.cover" [src]="getFullImageUrl(toy.cover)" alt="{{ toy.title }}" class="card-img">
-      <div class="card-body">
-        <h2 class="card-title">{{ toy.title }}</h2>
-        <p class="card-category">{{ toy.category }}</p>
-        <p class="card-description">{{ toy.description }}</p>
-      </div>
+      <a [routerLink]="['/toy', toy._id]">
+        <img *ngIf="toy.cover" [src]="getFullImageUrl(toy.cover)" alt="{{ toy.title }}" class="card-img">
+        <div class="card-body">
+          <h2 class="card-title">{{ toy.title }}</h2>
+          <p class="card-category">{{ toy.category }}</p>
+          <p class="card-description">{{ toy.description }}</p>
+        </div>
+      </a>
     </div>
   </div>
 </div>

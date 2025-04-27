@@ -9,6 +9,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { EditToyComponent } from './components/toy/edit-toy/edit-toy.component';
 import { UploadImagesComponent } from './components/toy/upload-images/upload-images.component';
 import { EditImagesComponent } from './components/toy/edit-images/edit-images.component';
+import { ToyDetailComponent } from './components/toy/toy-detail/toy-detail.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
@@ -39,5 +40,6 @@ export const routes: Routes = [
     component: EditImagesComponent,
     canActivate: [AdminGuard],
   },
+  { path: 'toy/:id', component: ToyDetailComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
