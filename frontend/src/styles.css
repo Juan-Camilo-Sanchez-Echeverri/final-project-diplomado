@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap');
+
+
+* {
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  outline: none;
+}
+
+a{
+  color: black;
+}
+
+button{
+  border:none;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: white;
+  color:black;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button:hover{
+  background-color: teal;
+  color: white;
+}
+
+
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
 
 /* position */
@@ -191,36 +223,7 @@ button.toast-close-button {
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap');
 
-
-* {
-  margin: 0;
-  font-family: 'Urbanist', sans-serif;
-  box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
-  outline: none;
-}
-
-a{
-  color: black;
-}
-
-button{
-  border:none;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: white;
-  color:black;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-button:hover{
-  background-color: teal;
-  color: white;
-}
 
 
 
