@@ -7,12 +7,13 @@ import {
   RegisterUser,
   User,
 } from '../interfaces/auth.interfaces';
+import { envs } from '../../env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:4000/api/v1.0/auth';
+  private apiUrl = `${envs.apiUrl}/auth`;
 
   constructor(private http: HttpClient) {}
 

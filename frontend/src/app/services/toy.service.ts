@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Toy } from '../interfaces/toy.interfaces';
+import { envs } from '../../env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToyService {
-  private apiUrl = 'http://localhost:4000/api/v1.0/toys';
-  private baseUrl = 'http://localhost:4000';
+  private apiUrl = `${envs.apiUrl}/toys`;
+  private baseUrl = envs.urlBaseImages;
 
   constructor(private http: HttpClient) {}
 

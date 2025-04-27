@@ -3,12 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Comment, CommentDto } from './../interfaces/comment.interfaces';
+import { envs } from '../../env';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  private apiUrl = 'http://localhost:4000/api/v1.0/toys';
+  private apiUrl = `${envs.apiUrl}/toys`;
 
   constructor(private http: HttpClient) {}
 
