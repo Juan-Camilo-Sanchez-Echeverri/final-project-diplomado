@@ -26,14 +26,7 @@
           class="input"
         />
       </div>
-      <div class="form-row">
-        <input
-          type="file"
-          (change)="handleFileInput($event)"
-          class="input"
-        />
-      </div>
-      <button type="submit" class="button" [disabled]="isLoading">Crear Juguete</button>
+      <button type="submit" class="button" [disabled]="isLoading">Continuar</button>
     </form>
     <div *ngIf="isLoading" class="loading">Cargando...</div>
   </div>

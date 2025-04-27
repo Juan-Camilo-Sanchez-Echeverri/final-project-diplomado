@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="title">Subir Imágenes</h1>
+  <form (ngSubmit)="uploadImages()" class="form">
+    <label for="cover">Portada:</label>
+    <input type="file" id="cover" (change)="handleCoverInput($event)" class="input" />
+    <label for="additionalImages">Imágenes Adicionales:</label>
+    <input type="file" id="additionalImages" (change)="handleAdditionalFilesInput($event)" class="input" multiple />
+    <button type="submit" class="button" [disabled]="isLoading">Subir Imágenes</button>
+  </form>
+  <div *ngIf="isLoading" class="loading">Cargando...</div>
+</div>

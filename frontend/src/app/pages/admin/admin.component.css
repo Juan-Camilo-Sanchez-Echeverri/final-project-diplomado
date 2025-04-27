@@ -1,0 +1,79 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.loading {
+  text-align: center;
+  color: teal;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 5px;
+}
+
+.edit-button {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+.images-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.images-button:hover {
+  background-color: #1976D2;
+}
+
+.cancel-button {
+  background-color: #9E9E9E;
+  color: white;
+  margin-top: 20px;
+}
+

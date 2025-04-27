@@ -1,0 +1,26 @@
+<div class="container">
+  <h1 class="title">Editar Imágenes</h1>
+  <div *ngIf="toy">
+    <div class="form">
+      <label for="cover">Portada:</label>
+      <img [src]="toyService.getFullImageUrl(toy.cover)" alt="Imagen del juguete" class="image-preview portada-imagen" />
+      <input type="file" id="cover" (change)="handleCoverInput($event)" class="input" />
+      <button (click)="uploadCover()" class="button" [disabled]="isLoading">Actualizar Portada</button>
+    </div>
+    <div class="images">
+      <h2>Imágenes Adicionales</h2>
+      <div class="image-grid">
+        <div *ngFor="let image of toy.images" class="image-item">
+          <img [src]="toyService.getFullImageUrl(image.url)" alt="Imagen del juguete" class="image-preview" />
+          <button (click)="handleImageDelete(image._id)" class="button" [disabled]="isLoading">Eliminar Imagen</button>
+        </div>
+      </div>
+      <div class="form">
+        <label for="additionalImages">Subir Imágenes Adicionales:</label>
+        <input type="file" id="additionalImages" (change)="handleAdditionalFilesInput($event)" class="input" multiple />
+        <button (click)="uploadAdditionalImages()" class="button" [disabled]="isLoading">Subir Imágenes</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isLoading" class="loading">Cargando...</div>
+</div>

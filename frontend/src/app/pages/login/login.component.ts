@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginCredentials } from '../interfaces/auth.interfaces';
+import { LoginCredentials } from '../../interfaces/auth.interfaces';
 
 @Component({
   selector: 'app-login',
@@ -39,7 +39,12 @@ export class LoginComponent {
     this.authService.login(credentials).subscribe({
       next: (response) => {
         this.isLoading = true;
-        this.router.navigate(['/home']);
+        if (response.user.role === 'admin') {
+          this.router.navigate(['/admin']);
+          return;
+        }
+
+        this.router.navigate(['/user']);
       },
       error: (error) => {
         this.isLoading = false;

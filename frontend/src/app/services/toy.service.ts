@@ -22,17 +22,62 @@ export class ToyService {
     return this.http.get<Toy[]>(this.apiUrl);
   }
 
+  getToyById(toyId: Toy['_id']): Observable<Toy> {
+    return this.http.get<Toy>(`${this.apiUrl}/${toyId}`);
+  }
+
   createToy(toy: Toy): Observable<Toy> {
     return this.http.post<Toy>(this.apiUrl, toy, {
       headers: this.getHeaders(),
     });
   }
 
-  uploadCover(toyId: string, cover: File) {
+  updateToy(toyId: Toy['_id'], toy: Toy): Observable<void> {
+    return this.http.put<void>(`${this.apiUrl}/${toyId}`, toy, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  deleteToy(toyId: Toy['_id']): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${toyId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  uploadCover(toyId: Toy['_id'], cover: File) {
     const formData = new FormData();
     formData.append('cover', cover);
 
     return this.http.put(`${this.apiUrl}/${toyId}/cover`, formData, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  updateImage(
+    toyId: Toy['_id'],
+    imageId: string,
+    formData: FormData
+  ): Observable<void> {
+    return this.http.put<void>(
+      `${this.apiUrl}/${toyId}/images/${imageId}`,
+      formData,
+      {
+        headers: this.getHeaders(),
+      }
+    );
+  }
+
+  deleteImage(toyId: Toy['_id'], imageId: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${toyId}/image/${imageId}`, {
+      headers: this.getHeaders(),
+    });
+  }
+
+  uploadAdditionalImages(
+    toyId: Toy['_id'],
+    formData: FormData
+  ): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/${toyId}/images`, formData, {
       headers: this.getHeaders(),
     });
   }

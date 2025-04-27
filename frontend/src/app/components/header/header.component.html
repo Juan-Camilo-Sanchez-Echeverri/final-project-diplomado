@@ -8,7 +8,7 @@
     </div>
   </section>
   <section class="logo">
-    <a routerLink="/" style="text-decoration: none; color: black;">
+    <a [routerLink]="isAdmin() ? '/admin' : '/'" style="text-decoration: none; color: black;">
       <h1>TOYS</h1>
     </a>
   </section>
@@ -19,7 +19,8 @@
   </section>
   <section class="login">
     <ng-container *ngIf="hasUserSession(); else notLoggedIn">
-      <button (click)="handleLogout()">Salir</button>
+      <!-- <button (click)="handleLogout()">Salir</button> -->
+       <a href="#" (click)="handleLogout()">Salir</a>
     </ng-container>
     <ng-template #notLoggedIn>
       <a routerLink="/login" style="text-decoration: none; color: black;">

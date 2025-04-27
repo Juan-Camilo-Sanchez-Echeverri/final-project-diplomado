@@ -7,7 +7,7 @@ import {
   faShoppingCart,
   faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { AnnouncementComponent } from '../announcement/announcement.component';
 
 @Component({

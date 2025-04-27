@@ -1,0 +1,90 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.input:focus {
+  border-color: teal;
+  outline: none;
+}
+
+.button {
+  width: 100%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+  background-color: darkcyan;
+}
+
+.images {
+  margin-top: 20px;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.portada-imagen {
+  max-width: 200px; 
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+  color: teal;
+  font-size: 16px;
+  margin-top: 20px;
+}

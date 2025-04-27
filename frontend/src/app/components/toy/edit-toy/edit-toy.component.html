@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="title">Editar Juguete</h1>
+  <form [formGroup]="toyForm" (ngSubmit)="handleSubmit()" class="form">
+    <input
+      type="text"
+      placeholder="Título"
+      formControlName="title"
+      class="input"
+    />
+    <select formControlName="category" class="input">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+    <textarea
+      placeholder="Descripción"
+      formControlName="description"
+      class="input"
+    ></textarea>
+    <input
+      type="text"
+      placeholder="Tags (separados por comas)"
+      formControlName="tags"
+      class="input"
+    />
+    <button type="submit" class="button" [disabled]="isLoading">Actualizar Juguete</button>
+    <button (click)="goBack()" class="button cancel-button">Cancelar</button>
+  </form>
+  <div *ngIf="isLoading" class="loading">Cargando...</div>
+</div>

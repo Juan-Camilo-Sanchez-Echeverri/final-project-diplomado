@@ -1,0 +1,28 @@
+<div class="container">
+  <h1 class="title">Administrar Juguetes</h1>
+  <div *ngIf="isLoading" class="loading">Cargando...</div>
+  <table *ngIf="!isLoading" class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Categoría</th>
+        <th>Descripción</th>
+        <th>Tags</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let toy of toys">
+        <td>{{ toy.title }}</td>
+        <td>{{ toy.category }}</td>
+        <td>{{ toy.description }}</td>
+        <td>{{ toy.tags }}</td>
+        <td>
+          <button (click)="editToy(toy._id)" class="button edit-button">Editar</button>
+          <button (click)="deleteToy(toy._id)" class="button delete-button">Eliminar</button>
+          <button (click)="navigateToEditImages(toy._id)" class="button images-button">Editar Imágenes</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
