@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Toy } from '../interfaces/toy.interfaces';
-import { envs } from '../../env';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToyService {
-  private apiUrl = `${envs.apiUrl}/toys`;
-  private baseUrl = envs.urlBaseImages;
+  private apiUrl = `${environment.apiUrl}/toys`;
+  private baseUrl = environment.urlBaseImages;
 
   constructor(private http: HttpClient) {}
 
