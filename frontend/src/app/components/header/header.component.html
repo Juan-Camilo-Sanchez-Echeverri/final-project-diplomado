@@ -8,25 +8,32 @@
     </div>
   </section>
   <section class="logo">
-    <a [routerLink]="isAdmin() ? '/admin' : '/'" style="text-decoration: none; color: black;">
+    <a
+      [routerLink]="isAdmin() ? '/admin' : '/'"
+      style="text-decoration: none; color: black"
+    >
       <h1>TOYS</h1>
     </a>
   </section>
   <section class="admin-link" *ngIf="isAdmin()">
-    <a routerLink="/create-toy" style="text-decoration: none; color: black;">
+    <a
+      routerLink="/create-toy"
+      style="text-decoration: none; color: black"
+      class="btn-create-toy"
+    >
       <span>Crear Juguete</span>
     </a>
   </section>
   <section class="login">
     <ng-container *ngIf="hasUserSession(); else notLoggedIn">
       <!-- <button (click)="handleLogout()">Salir</button> -->
-       <a href="#" (click)="handleLogout()">Salir</a>
+      <a href="#" (click)="handleLogout()" class="btn-salir">Salir</a>
     </ng-container>
     <ng-template #notLoggedIn>
-      <a routerLink="/login" style="text-decoration: none; color: black;">
+      <a routerLink="/login" style="text-decoration: none; color: black">
         <span>Iniciar sesión</span>
       </a>
-      <a routerLink="/register" style="text-decoration: none; color: black;">
+      <a routerLink="/register" style="text-decoration: none; color: black">
         <span>Registrarse</span>
       </a>
     </ng-template>

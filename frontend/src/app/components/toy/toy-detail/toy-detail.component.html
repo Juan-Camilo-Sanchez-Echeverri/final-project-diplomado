@@ -1,34 +1,98 @@
-<div class="container" *ngIf="toy">
-  <h1 class="title">{{ toy.title }}</h1>
-  <img [src]="toyService.getFullImageUrl(toy.cover)" alt="{{ toy.title }}" class="cover-img">
-  <p class="category">{{ toy.category }}</p>
-  <p class="description">{{ toy.description }}</p>
-  <div class="tags">
-    <span *ngFor="let tag of toy?.tags" class="tag">{{ tag }}</span>
+<div class="toy-detail-container" *ngIf="toy">
+  <div class="toy-card">
+    <h1 class="toy-title">{{ toy.title }}</h1>
+
+    <div class="carousel">
+      <div class="main-image">
+        <img
+          *ngIf="selectedImage"
+          [src]="selectedImage"
+          alt="{{ toy.title }}"
+          class="toy-cover"
+        />
+
+        <div class="image-grid">
+          <div class="image-item" (click)="changeSelectedImage(toy.cover)">
+            <img
+              [src]="toyService.getFullImageUrl(toy.cover)"
+              alt="Portada del juguete"
+              class="image-preview"
+            />
+          </div>
+
+          <div
+            *ngFor="let image of toy.images"
+            class="image-item"
+            (click)="changeSelectedImage(image.url)"
+          >
+            <img
+              [src]="toyService.getFullImageUrl(image.url)"
+              alt="Imagen del juguete"
+              class="image-preview"
+            />
+          </div>
+        </div>
+      </div>
+
+      <p class="toy-category">{{ toy.category }}</p>
+      <p class="toy-description">{{ toy.description }}</p>
+
+      <div class="toy-tags">
+        <span *ngFor="let tag of toy.tags" class="toy-tag">{{ tag }}</span>
+      </div>
+
+      <div class="toy-comments">
+        <h2>Comentarios</h2>
+
+        <div *ngFor="let comment of toy.comments" class="comment-card">
+          <p class="comment-content">{{ comment.content }}</p>
+          <div class="comment-footer">
+            <span class="comment-user">{{ comment.user.name }}</span>
+            <span class="comment-date">{{
+              comment.createdAt | date : "short"
+            }}</span>
+          </div>
+          <div *ngIf="canEditOrDelete(comment)" class="comment-actions">
+            <button (click)="editComment(comment)" class="btn edit-btn">
+              Editar
+            </button>
+            <button (click)="deleteComment(comment._id)" class="btn delete-btn">
+              Eliminar
+            </button>
+          </div>
+        </div>
+
+        <div *ngIf="!editingCommentId" class="comment-form">
+          <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+            <textarea
+              formControlName="content"
+              placeholder="Agregar un comentario..."
+              required
+            ></textarea>
+            <button type="submit" class="btn add-btn">
+              Agregar Comentario
+            </button>
+          </form>
+        </div>
+
+        <div *ngIf="editingCommentId" class="comment-form">
+          <form [formGroup]="editCommentForm" (ngSubmit)="updateComment()">
+            <textarea
+              formControlName="content"
+              placeholder="Editar comentario..."
+              required
+            ></textarea>
+            <button type="submit" class="btn update-btn">Actualizar</button>
+            <button type="button" (click)="cancelEdit()" class="btn cancel-btn">
+              Cancelar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <button (click)="goBack()" class="btn back-btn">← Volver</button>
+    </div>
   </div>
-  <div class="comments">
-    <h2>Comentarios</h2>
-    <div *ngFor="let comment of toy?.comments" class="comment">
-      <p>{{ comment.content }}</p>
-      <p class="comment-user">{{ comment.user.name }}</p>
-      <p class="comment-date">{{ comment.createdAt | date:'short' }}</p>
-      <button *ngIf="canEditOrDelete(comment)" (click)="editComment(comment)" class="button edit-button">Editar</button>
-      <button *ngIf="canEditOrDelete(comment)" (click)="deleteComment(comment._id)" class="button delete-button">Eliminar</button>
-    </div>
-    <div class="add-comment" *ngIf="!editingCommentId">
-      <form [formGroup]="commentForm" (ngSubmit)="addComment()">
-        <textarea formControlName="content" placeholder="Agregar un comentario..." class="input" required></textarea>
-        <button type="submit" class="button add-button">Agregar Comentario</button>
-      </form>
-    </div>
-    <div class="edit-comment" *ngIf="editingCommentId">
-      <form [formGroup]="editCommentForm" (ngSubmit)="updateComment()">
-        <textarea formControlName="content" placeholder="Editar comentario..." class="input" required></textarea>
-        <button type="submit" class="button update-button">Actualizar Comentario</button>
-        <button type="button" (click)="cancelEdit()" class="button cancel-button">Cancelar</button>
-      </form>
-    </div>
-  </div>
-  <button (click)="goBack()" class="button back-button">Volver a la lista</button>
+
+  <div *ngIf="isLoading" class="loading">Cargando...</div>
 </div>
-<div *ngIf="isLoading" class="loading">Cargando...</div>

@@ -24,6 +24,7 @@ import { Comment, CommentDto } from '../../../interfaces/comment.interfaces';
 })
 export class ToyDetailComponent implements OnInit {
   toy: Toy | null = null;
+  selectedImage: string | null = null;
   commentForm: FormGroup;
   editCommentForm: FormGroup;
   isLoading = true;
@@ -59,12 +60,17 @@ export class ToyDetailComponent implements OnInit {
       next: (toy) => {
         this.toy = toy;
         this.isLoading = false;
+        this.selectedImage = this.toyService.getFullImageUrl(toy.cover);
       },
       error: (err) => {
         this.toastr.error('Error al cargar el juguete');
         this.isLoading = false;
       },
     });
+  }
+
+  changeSelectedImage(imageUrl: string): void {
+    this.selectedImage = this.toyService.getFullImageUrl(imageUrl);
   }
 
   addComment(): void {
