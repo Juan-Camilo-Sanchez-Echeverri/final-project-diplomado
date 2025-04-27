@@ -1,59 +1,101 @@
-# Frontend
+# Blog de Juguetes - Proyecto Completo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Este repositorio contiene una aplicación completa para un blog de juguetes, desarrollada con Angular en el frontend y Node.js/Express/MongoDB en el backend.
 
-## Development server
+## Descripción del Proyecto
 
-To start a local development server, run:
+El Blog de Juguetes es una aplicación web que permite a los usuarios:
+- Ver publicaciones sobre juguetes
+- Leer y escribir comentarios
+- Administrar el contenido (para usuarios con rol de administrador)
+
+## Estructura del Proyecto
+
+El proyecto está dividido en dos partes principales:
+
+```
+final-project-diplomado/
+├── frontend/     # Aplicación Angular
+└── backend/      # API REST con Node.js y Express
+```
+
+## Requisitos de Sistema
+
+- Node.js (versión 16 o superior)
+- MongoDB (instalado localmente o una cuenta en MongoDB Atlas)
+- Angular CLI (para desarrollo frontend)
+
+## Instalación y Configuración
+
+### 1. Backend
 
 ```bash
+# Navegar al directorio backend
+cd backend
+
+# Instalar dependencias
+npm install
+
+# Configurar variables de entorno
+# Crea un archivo .env basado en el ejemplo proporcionado
+```
+
+### 2. Frontend
+
+```bash
+# Navegar al directorio frontend
+cd frontend
+
+# Instalar dependencias
+npm install
+```
+
+## Ejecución del Proyecto
+
+### Iniciar el Backend
+
+```bash
+# Desde el directorio backend
+npm run dev  # Para entorno de desarrollo con recarga automática
+# o
+npm start    # Para entorno de producción
+```
+
+El servidor backend estará disponible en `http://localhost:<PORT>`, donde <PORT> es el puerto configurado en el archivo `.env` en el backend.
+
+### Iniciar el Frontend
+
+```bash
+# Desde el directorio frontend
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación frontend estará disponible en `http://localhost:4200`.
 
-## Code scaffolding
+## Características Principales
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Backend
+- API RESTful
+- Autenticación con JWT
+- CRUD completo para juguetes
+- Sistema de comentarios
+- Manejo de subida de imágenes
+- Validación de datos
 
-```bash
-ng generate component component-name
-```
+### Frontend
+- Interfaz de usuario atractiva con Angular Material
+- Visualización de juguetes con imágenes
+- Panel de administración
+- Sistema de comentarios
+- Responsive design para dispositivos móviles y de escritorio
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Documentación
 
-```bash
-ng generate --help
-```
+Para obtener información más detallada sobre cada parte del proyecto:
 
-## Building
+- [Documentación del Frontend](./frontend/README.md)
+- [Documentación del Backend](./backend/README.md)
 
-To build the project run:
+## Licencia
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Este proyecto está licenciado bajo la Licencia que se especifica en el archivo LICENSE.
