@@ -19,7 +19,7 @@
     "express-validator": "^7.3.0",
     "joi": "^17.13.4",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.22.1",
+    "mongoose": "^8.24.1",
     "multer": "^2.2.0"
   },
   "devDependencies": {
